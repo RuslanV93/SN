@@ -1,0 +1,17 @@
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #eaecee;
+  box-shadow: 3px 3px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-img {
+  display: flex;
+
+  height: 3em;
+  width: 6em;
+  margin-top: 10px;
+  margin-left: 30px;
+}

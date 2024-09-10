@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  grid-area: navbar;
+  background-color: #f0f4f8;
+  height: auto;
+  padding: 50px;
+  gap: 10px;
+}
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar a:hover {
+  color: blue;
+}

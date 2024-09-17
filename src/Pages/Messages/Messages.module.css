@@ -1,0 +1,64 @@
+.messages {
+  height: 100vh;
+  overflow: hidden;
+  position: relative; /* Добавляем position для использования абсолютного позиционирования внутри */
+}
+
+.messages .chatListShrinked {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.friendsList {
+  flex: 0 0 400px;
+  overflow-y: auto;
+  border-right: 1px solid rgba(0, 0, 0, 0.091);
+}
+
+.dialog-container {
+  flex: 1;
+  padding: 20px;
+  position: relative; /* Обеспечиваем, чтобы крестик был привязан к этому контейнеру */
+}
+
+.close-btn {
+  position: absolute; /* Абсолютное позиционирование */
+  top: 50px; /* Отступ сверху */
+  right: 50px; /* Отступ справа */
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background-color: transparent;
+  border: 1px solid black;
+  opacity: 0.3;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.close-btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Анимация скейла при наведении */
+.close-btn:hover::before,
+.close-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1.2) rotate(45deg);
+  opacity: 1;
+}
+
+.close-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1.2) rotate(-45deg);
+}

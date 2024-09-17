@@ -5,6 +5,6 @@
     'navbar content content';
   grid-template-rows: 100px 1fr;
   grid-template-columns: 200px 10fr;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f0f4f8;
 }

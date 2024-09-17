@@ -7,11 +7,21 @@
   padding: 50px;
   gap: 10px;
 }
+
 .navbar a {
   text-decoration: none;
   color: inherit;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: color 0.1s ease, font-size 0.1s ease;
+  display: inline-block;
 }
+
 .navbar a:hover {
-  color: blue;
+  color: rgba(58, 58, 236, 0.912);
+  transform: scale(1.2);
+}
+
+.active {
+  color: #efd7cf;
+  font-weight: bold;
 }

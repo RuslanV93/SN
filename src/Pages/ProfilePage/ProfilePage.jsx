@@ -1,9 +1,9 @@
-import MyPosts from './MyPosts/MyPosts';
+import MyPosts from '../../features/MyPosts/MyPosts';
 import styles from './ProfilePage.module.css';
 
-const Content = () => {
+const ProfilePage = () => {
   return (
-    <div className={styles.content}>
+    <div className={styles.profile}>
       <div className={styles['page-head-img']}>
         <img
           className={styles['content-page-image']}
@@ -19,8 +19,8 @@ const Content = () => {
         ></img>
         <div className={styles.description}>Lorem</div>
       </div>
-      <MyPosts />
+      <MyPosts/>
     </div>
   );
 };
-export default Content;
+export default ProfilePage;

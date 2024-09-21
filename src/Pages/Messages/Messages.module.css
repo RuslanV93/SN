@@ -1,64 +1,107 @@
 .messages {
-  height: 100vh;
-  overflow: hidden;
-  position: relative; /* Добавляем position для использования абсолютного позиционирования внутри */
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
 }
 
 .messages .chatListShrinked {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
-.friendsList {
-  flex: 0 0 400px;
-  overflow-y: auto;
-  border-right: 1px solid rgba(0, 0, 0, 0.091);
+.chat-list {
+
+    height: 80vh;
+    overflow-y: auto;
+    border-right: 1px solid rgba(0, 0, 0, 0.091);
+    transition: width 0.2s ease;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(240, 244, 248, 0.43);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(136, 136, 136, 0.32);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(85, 85, 85, 0.66);
+    }
 }
 
-.dialog-container {
-  flex: 1;
-  padding: 20px;
-  position: relative; /* Обеспечиваем, чтобы крестик был привязан к этому контейнеру */
+.chat-list-shr {
+    width: 40%;
+}
+
+.chat-list-non-shr {
+    width: 100%;
 }
 
 .close-btn {
-  position: absolute; /* Абсолютное позиционирование */
-  top: 50px; /* Отступ сверху */
-  right: 50px; /* Отступ справа */
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 }
 
 .close-btn::before,
 .close-btn::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 18px;
-  height: 2px;
-  background-color: transparent;
-  border: 1px solid black;
-  opacity: 0.3;
-  transform: translate(-50%, -50%) rotate(45deg);
-  box-sizing: border-box;
-  transition: transform 0.3s ease;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 2px;
+    background-color: transparent;
+    border: 1px solid black;
+    opacity: 0.3;
+    transform: translate(-50%, -50%) rotate(45deg);
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
 .close-btn::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* Анимация скейла при наведении */
 .close-btn:hover::before,
 .close-btn:hover::after {
-  transform: translate(-50%, -50%) scale(1.2) rotate(45deg);
-  opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2) rotate(45deg);
+    opacity: 1;
 }
 
 .close-btn:hover::after {
-  transform: translate(-50%, -50%) scale(1.2) rotate(-45deg);
+    transform: translate(-50%, -50%) scale(1.2) rotate(-45deg);
+}
+
+.post-img-container {
+    flex-grow: 1;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    flex: none;
+    margin: 10px;
+
+}
+
+.post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

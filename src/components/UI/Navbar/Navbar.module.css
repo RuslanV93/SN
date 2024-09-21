@@ -1,27 +1,33 @@
 .navbar {
-  display: flex;
-  flex-direction: column;
-  grid-area: navbar;
-  background-color: #f0f4f8;
-  height: auto;
-  padding: 50px;
-  gap: 10px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    grid-area: navbar;
+    background-color: #f0f4f8;
+    height: 100%;
+    padding: 50px;
+    gap: 10px;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: inherit;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: color 0.1s ease, font-size 0.1s ease;
-  display: inline-block;
+.inActive {
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: color 0.1s ease, font-size 0.1s ease;
+    display: inline-block;
+
 }
 
-.navbar a:hover {
-  color: rgba(58, 58, 236, 0.912);
-  transform: scale(1.2);
+.inActive:hover {
+    color: rgba(58, 58, 236, 0.912);
+    transform: scale(1.1);
 }
 
 .active {
-  color: #efd7cf;
-  font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    color: #1e1918;
+    font-weight: bold;
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
 }

@@ -5,26 +5,34 @@ import './images/logo.png';
 import ProfilePage from './Pages/ProfilePage/ProfilePage';
 import Messages from './Pages/Messages/Messages';
 import ContentSide from './components/UI/ContentSide/ContentSide';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import NewsPage from './Pages/NewsPage/NewsPage';
 import MusicPage from './Pages/MusicPage/MusicPage';
 import SettingsPage from './Pages/SettingsPage/SettingsPage';
+import FriendsPage from './Pages/FriendsPage/FriendsPage';
 
-function App() {
+function App(props) {
   return (
     <div className="app-wrapper">
       <Header />
-      <Navbar />
+      <Navbar state={props.state.messagesPage} />
       <ContentSide>
         <Routes>
           <Route path={'/'} element={<Navigate to={'/profile'} />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/messages/*" element={<Messages />} />
+          <Route path="/profile" element={<ProfilePage state={props.state} />} />
+          <Route path="/messages/*" element={<Messages state={props.state} />} />
           <Route path="/newsfeed" element={<NewsPage />} />
           <Route path="/music" element={<MusicPage />} />
           <Route path="/settings" element={<SettingsPage />} />
-          <Route path={'*'} element={<NotFoundPage />} />
+          <Route
+            path={'*'}
+            element={<NotFoundPage link={'/'} errorMessage={'Go back to start page'} />}
+          />
+          <Route
+            path="/friends"
+            element={<FriendsPage state={props.state.messagesPage} />}
+          />
         </Routes>
       </ContentSide>
     </div>

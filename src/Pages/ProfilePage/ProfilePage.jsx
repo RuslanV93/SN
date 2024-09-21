@@ -1,7 +1,8 @@
 import MyPosts from '../../features/MyPosts/MyPosts';
 import styles from './ProfilePage.module.css';
+import ProfileInfo from '../../features/ProfileInfo/ProfileInfo';
 
-const ProfilePage = () => {
+const ProfilePage = (props) => {
   return (
     <div className={styles.profile}>
       <div className={styles['page-head-img']}>
@@ -11,15 +12,8 @@ const ProfilePage = () => {
           alt="img"
         ></img>
       </div>
-      <div className={styles['profile-info']}>
-        <img
-          className={styles['profile-image']}
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYYFhUjvNhBJ9SwQTv8X3PyQVtd-EejwOMQ&s"
-          alt="profile-photo"
-        ></img>
-        <div className={styles.description}>Lorem</div>
-      </div>
-      <MyPosts/>
+      <ProfileInfo />
+      <MyPosts state={props.state} />
     </div>
   );
 };

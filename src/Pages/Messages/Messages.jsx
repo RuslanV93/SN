@@ -1,9 +1,11 @@
 import ChatListWindow from '../../features/ChatListComponent/ChatListComponent';
 import DialogComponent from '../../features/DialogComponent/DialogComponent';
 import styles from './Messages.module.css';
-import { Routes, Route, useLocation, Link } from 'react-router-dom';
-const Messages = () => {
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+
+const Messages = (props) => {
   const location = useLocation();
+  console.log(props);
   const isDialogOpen =
     location.pathname.includes('/messages/') && location.pathname.split('/messages/')[1];
   return (
@@ -17,14 +19,17 @@ const Messages = () => {
         ''
       )}
       <div className={`${isDialogOpen ? styles.chatListShrinked : ''}`}>
-        <div className={styles.friendsList}>
-          <ChatListWindow isDialogOpen={isDialogOpen} />
+        <div
+          className={`${styles['chat-list']} ${
+            isDialogOpen ? styles['chat-list-shr'] : styles['chat-list-non-shr']
+          }`}
+        >
+          <ChatListWindow isDialogOpen={isDialogOpen} state={props.state} />
         </div>
-        <div className={styles['dialog-container']}>
-          <Routes>
-            <Route path=":userID" element={<DialogComponent />}></Route>
-          </Routes>
-        </div>
+
+        <Routes>
+          <Route path=":userID" element={<DialogComponent state={props.state} />}></Route>
+        </Routes>
       </div>
     </div>
   );

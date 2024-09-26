@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import UserAvatar from '../../components/Helpers/UserAvatar/UserAvatar';
 
 const ChatListWindow = (props) => {
-  console.log(props.state.messagesPage.USERS_MESSAGES[0]);
   const [chats, setChats] = useState(props.state.messagesPage.USERS_MESSAGES);
   useEffect(() => {
     setChats(props.state.messagesPage.USERS_MESSAGES);

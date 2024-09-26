@@ -1,12 +1,12 @@
 .app-wrapper {
     display: grid;
-
     grid-template-areas:
     'header header header'
     'navbar content content';
     grid-template-rows: 100px 1fr;
     grid-template-columns: 250px 10fr;
+    box-sizing: border-box;
     min-height: 100vh;
-    background-color: #f0f4f8;
 
+    background-color: #f0f4f8;
 }

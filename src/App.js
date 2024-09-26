@@ -20,8 +20,14 @@ function App(props) {
       <ContentSide>
         <Routes>
           <Route path={'/'} element={<Navigate to={'/profile'} />} />
-          <Route path="/profile" element={<ProfilePage state={props.state} />} />
-          <Route path="/messages/*" element={<Messages state={props.state} />} />
+          <Route
+            path="/profile"
+            element={<ProfilePage state={props.state} dispatch={props.dispatch} />}
+          />
+          <Route
+            path="/messages/*"
+            element={<Messages dispatch={props.dispatch} state={props.state} />}
+          />
           <Route path="/newsfeed" element={<NewsPage />} />
           <Route path="/music" element={<MusicPage />} />
           <Route path="/settings" element={<SettingsPage />} />

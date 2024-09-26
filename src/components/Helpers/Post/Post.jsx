@@ -12,7 +12,13 @@ const Post = (props) => {
       <div className={styles['post-textarea']}>{props.POST_DATA.message}</div>
       <div className={styles['post-interactive-section']}>
         <span>{props.likes}</span>
-        <Button props={'Like'} />
+        <Button
+          aria-label="лайки"
+          btnStyles={{ ...styles }}
+          click={() => console.log('like')}
+        >
+          Лайки
+        </Button>
       </div>
     </div>
   );

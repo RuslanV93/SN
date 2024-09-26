@@ -1,14 +1,17 @@
 .button-container {
+
 }
+
 .button {
-  border: 1px solid rgba(4, 4, 4, 0.1);
-  padding: 5px 10px 5px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
+    border: 1px solid rgba(4, 4, 4, 0.1);
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .button:hover {
-  background-color: #f0f0f0;
-  border-color: rgba(4, 4, 4, 0.3);
+    background-color: #f0f0f0;
+    border-color: rgba(4, 4, 4, 0.3);
 }
+

@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import FriendsList from '../../../features/FriendsList/FriendsList';
 
 const Navbar = (props) => {
-  console.log(props);
   return (
     <nav className={styles.navbar}>
       <div>

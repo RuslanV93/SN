@@ -1,7 +1,6 @@
 import React from 'react';
 
 const UserAvatar = (props) => {
-  console.log(props.user);
   return (
     <div className={props.styleProps['post-img-container']}>
       <img

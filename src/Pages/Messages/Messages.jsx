@@ -5,7 +5,7 @@ import { Link, Route, Routes, useLocation } from 'react-router-dom';
 
 const Messages = (props) => {
   const location = useLocation();
-  console.log(props);
+
   const isDialogOpen =
     location.pathname.includes('/messages/') && location.pathname.split('/messages/')[1];
   return (
@@ -28,7 +28,10 @@ const Messages = (props) => {
         </div>
 
         <Routes>
-          <Route path=":userID" element={<DialogComponent state={props.state} />}></Route>
+          <Route
+            path=":userID"
+            element={<DialogComponent dispatch={props.dispatch} state={props.state} />}
+          ></Route>
         </Routes>
       </div>
     </div>

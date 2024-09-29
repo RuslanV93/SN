@@ -3,7 +3,7 @@
     overflow: auto;
     overflow-x: hidden;
     max-height: 100%;
-    
+    margin-bottom: 20px;
 }
 
 .messages .chatListShrinked {
@@ -105,4 +105,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.dark {
+    color: white
 }

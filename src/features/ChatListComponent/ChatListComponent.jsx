@@ -1,44 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styles from './ChatListComponent.module.css';
 import { NavLink } from 'react-router-dom';
 import UserAvatar from '../../components/Helpers/UserAvatar/UserAvatar';
+import { ThemeContext } from '../../context/ThemeProvider';
 
-const ChatListWindow = (props) => {
-  const [chats, setChats] = useState(props.state.messagesPage.USERS_MESSAGES);
-  useEffect(() => {
-    setChats(props.state.messagesPage.USERS_MESSAGES);
-  }, [props.state.messagesPage.USERS_MESSAGES]);
+const ChatListWindowComponent = (props) => {
+  const { theme } = useContext(ThemeContext);
+  const messagesPage = props.messagesPage;
+  const chatsParticipants = props.friendsList;
+  const lastMessage =
+    messagesPage.USERS_MESSAGES[messagesPage.USERS_MESSAGES.length - 1].message;
 
   return (
     <ul className={styles.chatsList}>
-      {chats.map((user, index) => (
+      {chatsParticipants.map((user, index) => (
         <NavLink
           key={user.id}
           to={`/messages/${user.id}`}
           className={({ isActive }) => {
             return isActive
-              ? `${styles['chat-link']} ${styles['active']}`
-              : styles['chat-link'];
+              ? `${styles['chat-link']} ${styles['active']} ${styles[theme]}`
+              : `${styles['chat-link']} ${styles[theme]}`;
           }}
         >
           <UserAvatar
             styleProps={{ ...styles }}
-            user={props.state.messagesPage.USERS_DATA.find(
-              (userData) => userData.id === user.id
-            )}
+            user={chatsParticipants.find((userData) => userData.id === user.id)}
           />
           <li>
             <div className={styles['chat-container']}>
-              <div className={styles['dialog-name']}>{user.participantsNames[1]}</div>
+              <div className={styles['dialog-name']}>{user.userName}</div>
               <div className={styles.dialogText}>
-                {props.state.messagesPage.USERS_MESSAGES[index].lastMessageMethod
-                  .call(user)
-                  .slice(0, 30)}
-                {props.state.messagesPage.USERS_MESSAGES[index].lastMessageMethod.call(
-                  user
-                ).length > 30
-                  ? '...'
-                  : ''}
+                {lastMessage.slice(0, 30)}
+                {lastMessage.length > 30 ? '...' : ''}
               </div>
             </div>
           </li>
@@ -48,4 +42,4 @@ const ChatListWindow = (props) => {
   );
 };
 
-export default ChatListWindow;
+export default ChatListWindowComponent;

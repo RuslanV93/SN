@@ -1,10 +1,14 @@
 import MyPosts from '../../features/MyPosts/MyPosts';
 import styles from './ProfilePage.module.css';
 import ProfileInfo from '../../features/ProfileInfo/ProfileInfo';
+import MyPostsContainer from '../../features/MyPosts/MyPostsContainer';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeProvider';
 
 const ProfilePage = (props) => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className={styles.profile}>
+    <div className={`${styles.profile} ${styles[theme]}`}>
       <div className={styles['page-head-img']}>
         <img
           className={styles['content-page-image']}
@@ -13,7 +17,7 @@ const ProfilePage = (props) => {
         ></img>
       </div>
       <ProfileInfo />
-      <MyPosts state={props.state} dispatch={props.dispatch} />
+      <MyPostsContainer />
     </div>
   );
 };

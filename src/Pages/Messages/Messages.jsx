@@ -1,16 +1,18 @@
-import ChatListWindow from '../../features/ChatListComponent/ChatListComponent';
-import DialogComponent from '../../features/DialogComponent/DialogComponent';
 import styles from './Messages.module.css';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import ChatListWindowContainer from '../../features/ChatListComponent/ChatListComponentContainer';
+import DialogComponentContainer from '../../features/DialogComponent/DialogComponentContainer';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeProvider';
 
 const Messages = (props) => {
   const location = useLocation();
-
+  const { theme } = useContext(ThemeContext);
   const isDialogOpen =
     location.pathname.includes('/messages/') && location.pathname.split('/messages/')[1];
   return (
     <div className={styles.messages}>
-      <h1>Dialogs</h1>
+      <h1 className={styles[theme]}>Dialogs</h1>
       {isDialogOpen ? (
         <Link to={'/messages'}>
           <span className={styles['close-btn']}></span>
@@ -24,14 +26,11 @@ const Messages = (props) => {
             isDialogOpen ? styles['chat-list-shr'] : styles['chat-list-non-shr']
           }`}
         >
-          <ChatListWindow isDialogOpen={isDialogOpen} state={props.state} />
+          <ChatListWindowContainer />
         </div>
 
         <Routes>
-          <Route
-            path=":userID"
-            element={<DialogComponent dispatch={props.dispatch} state={props.state} />}
-          ></Route>
+          <Route path=":userID" element={<DialogComponentContainer />}></Route>
         </Routes>
       </div>
     </div>

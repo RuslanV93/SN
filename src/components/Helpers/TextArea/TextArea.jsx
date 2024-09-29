@@ -1,19 +1,15 @@
 import React, { forwardRef } from 'react';
-import styles from './TextArea.module.css';
 
 const TextArea = forwardRef((props, ref) => {
-  console.log(props.value);
   const { textPlaceholder } = props;
 
   return (
-    <div
-      className={`${styles['textarea-container-parent']} ${styles['textarea-container']}`}
-    >
+    <div className={props.textareaStyles['textarea-container']}>
       <textarea
-        value={props.value.text || ''}
+        value={typeof props.value === 'string' ? props.value : props.value.text || ''}
         onChange={props.onTextAdd}
         ref={ref}
-        className={styles['textarea']}
+        className={props.textareaStyles['textarea']}
         placeholder={textPlaceholder}
       ></textarea>
     </div>

@@ -1,10 +1,4 @@
 .textarea-container {
-    border: 1px solid rgba(57, 155, 227, 0.22);
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    min-height: 3ch;
-    padding: 5px 5px 5px 20px;
-    border-radius: 10px;
+    
 }
+

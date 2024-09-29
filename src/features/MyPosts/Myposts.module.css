@@ -19,14 +19,50 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
-    background-color: white;
-}
-
-.button {
-
+    background-color: #efeded;
 }
 
 .button-container:hover {
     background-color: #f0f0f0;
     border-color: rgba(4, 4, 4, 0.3);
 }
+
+.textarea-container {
+
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+
+}
+
+.textarea {
+    min-height: 60px;
+    width: 100%;
+    height: auto;
+    max-height: 80px;
+    box-sizing: border-box;
+    padding: 5px 5px 5px 20px; /* Отступы внутри textarea */
+    outline: none;
+    background-color: #eaedee; /* Цвет фона */
+    font-size: 16px; /* Размер шрифта */
+    color: #345770; /* Цвет текста */
+    border: none;
+    transition: border-color 0.3s; /* Плавный переход цвета границы */
+    resize: none; /* Убираем возможность изменения размера */
+    justify-content: center;
+    align-content: center;
+    border-radius: 10px;
+
+}
+
+.dark {
+    background-color: var(--dark-elements-background);
+}
+
+.dark .textarea {
+    background-color: #c5c2c2;
+}
+

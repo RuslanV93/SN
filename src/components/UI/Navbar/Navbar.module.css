@@ -31,3 +31,16 @@
     transform: scale(1.2);
     transition: transform 0.3s ease;
 }
+
+.light {
+
+}
+
+.dark {
+    color: #8f8888;
+}
+
+.active.dark {
+    color: #e1e5e8;
+
+}

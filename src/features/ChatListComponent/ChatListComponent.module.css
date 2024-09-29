@@ -69,3 +69,13 @@
     object-fit: cover;
 }
 
+.dark {
+    background-color: var(--dark-elements-background);
+    color: #c5bebe;
+    border: none;
+}
+
+.chat-link.dark:hover {
+    background-color: #3d4552;
+    color: white;
+}

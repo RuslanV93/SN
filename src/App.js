@@ -11,23 +11,21 @@ import NewsPage from './Pages/NewsPage/NewsPage';
 import MusicPage from './Pages/MusicPage/MusicPage';
 import SettingsPage from './Pages/SettingsPage/SettingsPage';
 import FriendsPage from './Pages/FriendsPage/FriendsPage';
+import ThemeProvider, { ThemeContext } from './context/ThemeProvider';
+import { useContext } from 'react';
 
 function App(props) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="app-wrapper">
+    <div className={`app-wrapper ${theme}`}>
       <Header />
-      <Navbar state={props.state.messagesPage} />
+      <Navbar />
       <ContentSide>
         <Routes>
           <Route path={'/'} element={<Navigate to={'/profile'} />} />
-          <Route
-            path="/profile"
-            element={<ProfilePage state={props.state} dispatch={props.dispatch} />}
-          />
-          <Route
-            path="/messages/*"
-            element={<Messages dispatch={props.dispatch} state={props.state} />}
-          />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/messages/*" element={<Messages />} />
           <Route path="/newsfeed" element={<NewsPage />} />
           <Route path="/music" element={<MusicPage />} />
           <Route path="/settings" element={<SettingsPage />} />
@@ -35,10 +33,7 @@ function App(props) {
             path={'*'}
             element={<NotFoundPage link={'/'} errorMessage={'Go back to start page'} />}
           />
-          <Route
-            path="/friends"
-            element={<FriendsPage state={props.state.messagesPage} />}
-          />
+          <Route path="/friends" element={<FriendsPage />} />
         </Routes>
       </ContentSide>
     </div>

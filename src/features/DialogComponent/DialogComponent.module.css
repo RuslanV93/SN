@@ -149,15 +149,55 @@
 }
 
 .end-of-messages {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
     margin-top: 20px;
     padding: 0 20px 0 20px;
-
+    justify-content: center;
 }
 
-.textarea-container-parent {
+.textarea-container {
+    border: 1px solid rgba(57, 155, 227, 0.22);
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    min-height: 3ch;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    text-align: center;
 
 }
 
 .textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px; /* Отступы внутри textarea */
+    outline: none;
+    border-radius: 4px; /* Закругление углов */
+    background-color: #f0f4f8; /* Цвет фона */
+    font-size: 16px; /* Размер шрифта */
+    color: #345770; /* Цвет текста */
+    border: none;
+    transition: border-color 0.3s; /* Плавный переход цвета границы */
+    resize: none; /* Убираем возможность изменения размера */
+    justify-content: center;
+    align-content: center;
 
+}
+
+.dark .message {
+    background-color: #4d5154;
+    border: #3d4552;
+    color: #d2cbcb;
+}
+
+.dark .textarea {
+    background-color: #d3d3d3;
+    color: black;
+}
+
+.dark .button {
+    background-color: #f6f6f6;
 }

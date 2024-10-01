@@ -1,20 +1,18 @@
 import styles from './Myposts.module.css';
 import Post from '../../components/Helpers/Post/Post';
 import Button from '../../components/Helpers/Button/Button';
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import TextArea from '../../components/Helpers/TextArea/TextArea';
-import { ThemeContext } from '../../context/ThemeProvider';
 
 const MyPosts = (props) => {
-  const { theme } = useContext(ThemeContext);
-  
+  console.log('hello2');
   const postsElement = [...props.posts]
     .reverse()
     .map((post) => (
       <Post
         key={post.postID}
         POST_DATA={post}
-        USERS_LIST={props.userList}
+        friendsList={props.friendsList}
         likes={post.likes}
       />
     ));
@@ -32,7 +30,7 @@ const MyPosts = (props) => {
   };
 
   return (
-    <div className={`${styles['my-posts']} ${styles[theme]}`}>
+    <div className={`${styles['my-posts']}`}>
       <TextArea
         ref={newPostElement}
         onTextAdd={onTextAreaChange}

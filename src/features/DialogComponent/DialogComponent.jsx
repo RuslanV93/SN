@@ -5,10 +5,8 @@ import TextArea from '../../components/Helpers/TextArea/TextArea';
 import Button from '../../components/Helpers/Button/Button';
 import sendImg from '../../images/sendMessage.png';
 import { useParams } from 'react-router-dom';
-import { ThemeContext } from '../../context/ThemeProvider';
 
 const DialogComponent = (props) => {
-  const { theme } = useContext(ThemeContext);
   const messagesPage = props.messagesPage;
   const userMessages = props.messagesPage.USERS_MESSAGES;
   const textAreaRef = useRef();
@@ -28,7 +26,7 @@ const DialogComponent = (props) => {
   };
 
   return (
-    <div className={`${styles['dialog-container']} ${styles[theme]}`}>
+    <div className={`${styles['dialog-container']}`}>
       <div className={styles['messages-container']}>
         {userMessages.map((message) => (
           <div
@@ -38,7 +36,7 @@ const DialogComponent = (props) => {
             <div className={styles.message}>{message.message}</div>
             <UserAvatar
               styleProps={{ ...styles }}
-              user={props.friendsList.USERS_DATA.find((user) => user.id === userID)}
+              user={props.friendsList.FRIENDS_DATA.find((user) => user.id === userID)}
             />
           </div>
         ))}

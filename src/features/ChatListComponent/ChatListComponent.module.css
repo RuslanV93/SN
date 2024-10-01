@@ -19,29 +19,26 @@
     padding: 20px;
     margin: 10px;
     width: 80%;
-    border: 1px solid #ddd;
+    border: var(--chat-link-border);
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    background-color: var(--chat-link-background);
+    color: var(--chat-link-text-color);
     font-weight: 500;
     transition: background-color 0.3s, color 0.3s;
     text-decoration: none;
 }
 
-.chat-container {
-
-}
-
 .active {
-    background-color: rgb(219, 230, 254);
+    background-color: var(--chat-link-active-bg-color);
     transform: scale(1.03);
     transition: transform 0.3s ease;
 }
 
 .chat-link:hover {
-    background-color: #e2e7ef;
-    color: #4267b2;
+    background-color: var(--chat-link-hover-bg-color);
+    color: var(--chat-link-hover-text-color);
 }
 
 .dialogText {
@@ -69,13 +66,3 @@
     object-fit: cover;
 }
 
-.dark {
-    background-color: var(--dark-elements-background);
-    color: #c5bebe;
-    border: none;
-}
-
-.chat-link.dark:hover {
-    background-color: #3d4552;
-    color: white;
-}

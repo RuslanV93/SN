@@ -67,8 +67,10 @@
     height: auto;
     padding: 20px;
     border-radius: 15px;
-    border: 1px solid rgba(57, 155, 227, 0.42);
+    border: var(--message-element-border);
     font-size: 14px;
+    background-color: var(--message-element-background);
+    color: var(--message-element-text-color)
 }
 
 .sent-message {
@@ -140,12 +142,14 @@
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    background-color: var(--send-message-button-bg-color);
 }
 
 .button:hover {
     background-color: #f0f0f0;
     border-color: rgba(4, 4, 4, 0.3);
+    transform: scale(1.1);
 }
 
 .end-of-messages {
@@ -158,13 +162,14 @@
 }
 
 .textarea-container {
+    display: flex;
     border: 1px solid rgba(57, 155, 227, 0.22);
     width: 90%;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
     min-height: 3ch;
-    padding: 5px 5px 5px 5px;
+    padding: 6px 5px 5px 5px;
     border-radius: 10px;
     text-align: center;
 
@@ -187,17 +192,3 @@
 
 }
 
-.dark .message {
-    background-color: #4d5154;
-    border: #3d4552;
-    color: #d2cbcb;
-}
-
-.dark .textarea {
-    background-color: #d3d3d3;
-    color: black;
-}
-
-.dark .button {
-    background-color: #f6f6f6;
-}

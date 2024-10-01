@@ -4,6 +4,7 @@
     overflow-x: hidden;
     max-height: 100%;
     margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 .messages .chatListShrinked {
@@ -107,6 +108,3 @@
     object-fit: cover;
 }
 
-.dark {
-    color: white
-}

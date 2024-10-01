@@ -15,11 +15,47 @@ code {
 }
 
 :root {
-    --light-background: #f0f4f8;
-    --light-color: #000;
-    --dark-background: #333;
-    --dark-elements-background: rgba(8, 17, 26, 0.25);
-    --dark-color: #fff;
-    --dark-theme-text-color: white
+    --background: #e7eaee;
+    --header-bg-color: rgba(211, 213, 218, 0.6);
+    --elements-background: rgb(251, 251, 251);
+    --text-color: black;
+    --message-element-background: #e7eaee;
+    --message-element-text-color: black;
+    --message-element-border: 1px solid rgba(57, 155, 227, 0.42);
+    --text-area-text-color: #345770;
+    --text-area-background-color: #f0f4f8;
+    --send-message-button-bg-color: #f6f6f6;
+    --chat-link-background: rgba(194, 194, 197, 0.29);
+    --chat-link-text-color: #333;
+    --chat-link-border: 1px solid #ddd;
+    --chat-link-hover-bg-color: #cfd4de;
+    --chat-link-hover-text-color: #4267b2;
+    --chat-link-active-bg-color: rgb(215, 223, 241);
+    --default-button-background: white;
+    --friends-list-container-bg-color: #e7eaee;
+    --navbar-active-link-color: #1e1918
+
 }
 
+:root .dark {
+    --background: #29292a;
+    --header-bg-color: rgba(8, 17, 26, 0.18);
+    --elements-background: rgba(8, 17, 26, 0.18);
+    --text-color: #cfd3d3;
+    --message-element-background: #3c4244;
+    --message-element-text-color: #d2cbcb;
+    --message-element-border: 1px solid #3d4552;
+    --text-area-text-color: black;
+    --text-area-background-color: #d3d3d3;
+    --send-message-button-bg-color: #f6f6f6;
+    --chat-link-background: rgba(11, 14, 17, 0.29);
+    --chat-link-text-color: #c5cace;
+    --chat-link-border: 1px solid #313134;
+    --chat-link-hover-bg-color: #383e4b;
+    --chat-link-hover-text-color: #939fa4;
+    --chat-link-active-bg-color: rgb(103, 108, 117);
+    --default-button-background: #ccced2;
+    --friends-list-container-bg-color: rgba(8, 17, 26, 0.18);
+    --navbar-links-color: #8f8888;
+    --navbar-active-link-color: #e1e5e8
+}

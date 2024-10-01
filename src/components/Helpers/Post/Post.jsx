@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './Post.module.css';
 import Button from '../Button/Button';
 import UserAvatar from '../UserAvatar/UserAvatar';

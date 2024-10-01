@@ -5,7 +5,7 @@ import UserAvatar from '../../components/Helpers/UserAvatar/UserAvatar';
 import { ThemeContext } from '../../context/ThemeProvider';
 
 const FriendsList = (props) => {
-  useEffect(() => {
+  useEffect((props) => {
     props.set3RandomFriend();
   }, []);
   const { theme } = useContext(ThemeContext);

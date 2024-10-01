@@ -1,4 +1,3 @@
-import React from 'react';
 import ChatListWindowComponent from './ChatListComponent';
 
 import { connect } from 'react-redux';

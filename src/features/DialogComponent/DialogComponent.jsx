@@ -1,6 +1,6 @@
 import styles from './DialogComponent.module.css';
 import UserAvatar from '../../components/Helpers/UserAvatar/UserAvatar';
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import TextArea from '../../components/Helpers/TextArea/TextArea';
 import Button from '../../components/Helpers/Button/Button';
 import sendImg from '../../images/sendMessage.png';

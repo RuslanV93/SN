@@ -7,7 +7,11 @@ const UserComponent = (props) => {
     <div className={styles['user-component-container']}>
       <div>
         <div>
-          <img src={props.userPhoto} className={styles['users-photo']} />
+          <img
+            src={props.userPhoto}
+            className={styles['users-photo']}
+            alt={'Userё avatar'}
+          />
         </div>
 
         {props.isFollowed ? (

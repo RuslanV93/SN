@@ -1,4 +1,3 @@
-import React from 'react';
 import ChatListWindowComponent from './ChatListComponent';
 
 import { connect } from 'react-redux';
@@ -6,7 +5,7 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state) => {
   return {
     messagesPage: state.messagesPage,
-    friendsList: state.friendsList.USERS_DATA,
+    friendsList: state.friendsList.FRIENDS_DATA,
   };
 };
 

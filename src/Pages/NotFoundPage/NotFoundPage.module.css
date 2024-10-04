@@ -1,0 +1,7 @@
+.not-found-page-container {
+    color: var(--text-color);
+}
+
+.not-found-page-container a {
+    color: var(--text-color)
+}

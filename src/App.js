@@ -11,10 +11,11 @@ import NewsPage from './Pages/NewsPage/NewsPage';
 import MusicPage from './Pages/MusicPage/MusicPage';
 import SettingsPage from './Pages/SettingsPage/SettingsPage';
 import FriendsPage from './Pages/FriendsPage/FriendsPage';
-import ThemeProvider, { ThemeContext } from './context/ThemeProvider';
+import { ThemeContext } from './context/ThemeProvider';
 import { useContext } from 'react';
+import AllUsersPageContainer from './Pages/AllUsers/AllUsersPageContainer';
 
-function App(props) {
+function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -34,6 +35,7 @@ function App(props) {
             element={<NotFoundPage link={'/'} errorMessage={'Go back to start page'} />}
           />
           <Route path="/friends" element={<FriendsPage />} />
+          <Route path="/users" element={<AllUsersPageContainer />} />
         </Routes>
       </ContentSide>
     </div>

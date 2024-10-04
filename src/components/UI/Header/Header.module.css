@@ -5,7 +5,7 @@
     padding-right: 20px;
     align-items: center;
     box-sizing: border-box;
-
+    background-color: var(--header-bg-color);
 }
 
 .header-img {
@@ -17,11 +17,4 @@
 
 }
 
-.light {
-    background-color: #eaecee;
-}
 
-.dark {
-    background-color: var(--dark-elements-background);
-
-}

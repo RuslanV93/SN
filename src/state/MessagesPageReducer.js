@@ -1,11 +1,3 @@
-import Alla from '../images/Alla.jfif';
-import Leha from '../images/Leha.jpg';
-import Valera from '../images/Valera.jfif';
-import Sveta from '../images/Sveta.jfif';
-import Katya from '../images/Katya.jfif';
-import Pasha from '../images/Pasha.jfif';
-import Ruslan from '../images/Ruslan.jpg';
-
 const SEND_MESSAGE = 'SEND-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 

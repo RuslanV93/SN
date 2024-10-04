@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
   return {
     posts: state.profilePage.POSTS_DATA,
     newPostText: state.profilePage.newPostText,
-    userList: state.friendsList.USERS_DATA,
+    friendsList: state.friendsList.FRIENDS_DATA,
   };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -9,7 +9,7 @@ import Ruslan from '../images/Ruslan.jpg';
 const SET_3_RANDOM_FRIENDS = 'SET-3-RANDOM-FRIENDS';
 
 const initialState = {
-  USERS_DATA: [
+  FRIENDS_DATA: [
     { id: 'id1', userName: 'Alla', lastMessage: 'Ты где?', profilePicture: Alla },
     { id: 'id2', userName: 'Leha', lastMessage: 'Привет', profilePicture: Leha },
     { id: 'id3', userName: 'Valera', lastMessage: 'Hi!', profilePicture: Valera },
@@ -28,7 +28,7 @@ const initialState = {
 const FriendsListReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_3_RANDOM_FRIENDS:
-      const randomFriends = [...state.USERS_DATA]
+      const randomFriends = [...state.FRIENDS_DATA]
         .sort(() => Math.random() - 0.5)
         .slice(0, 3);
       return { ...state, randomFriends };

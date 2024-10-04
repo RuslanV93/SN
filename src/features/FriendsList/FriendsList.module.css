@@ -9,10 +9,12 @@
     margin-left: -40px;
     justify-content: space-between;
     padding: 20px 0 30px 0;
+    background-color: var(--friends-list-container-bg-color);
 
 }
 
 .navbar-friends-list-container h4:first-child {
+    color: var(--text-color);
     margin: 0;
     padding-left: 7px;
 
@@ -43,6 +45,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 5px
+
 }
 
 .post-img-container {
@@ -65,10 +68,3 @@
     object-fit: cover;
 }
 
-.dark {
-    background-color: var(--dark-elements-background)
-}
-
-.dark h4 {
-    color: #e1d5d5;
-}

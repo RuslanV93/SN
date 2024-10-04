@@ -1,11 +1,10 @@
-import MyPosts from '../../features/MyPosts/MyPosts';
 import styles from './ProfilePage.module.css';
 import ProfileInfo from '../../features/ProfileInfo/ProfileInfo';
 import MyPostsContainer from '../../features/MyPosts/MyPostsContainer';
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-const ProfilePage = (props) => {
+const ProfilePage = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={`${styles.profile} ${styles[theme]}`}>
@@ -21,4 +20,5 @@ const ProfilePage = (props) => {
     </div>
   );
 };
+
 export default ProfilePage;

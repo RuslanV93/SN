@@ -1,21 +1,16 @@
 import styles from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
-import FriendsList from '../../../features/FriendsList/FriendsList';
-import { useContext } from 'react';
-import { ThemeContext } from '../../../context/ThemeProvider';
+
 import FriendsListContainer from '../../../features/FriendsList/FriendsListContainer';
 
-const Navbar = (props) => {
-  const { theme } = useContext(ThemeContext);
+const Navbar = () => {
   return (
-    <nav className={`${styles.navbar} ${styles[theme]}`}>
+    <nav className={`${styles.navbar} `}>
       <div>
         <NavLink
           to="/profile"
           className={({ isActive }) =>
-            isActive
-              ? `${styles.active} ${styles[theme]}`
-              : `${styles.inActive} ${styles[theme]}`
+            isActive ? `${styles.active} ` : `${styles.inActive} `
           }
         >
           Profile
@@ -25,21 +20,17 @@ const Navbar = (props) => {
         <NavLink
           to="/messages"
           className={({ isActive }) =>
-            isActive
-              ? `${styles.active} ${styles[theme]}`
-              : `${styles.inActive} ${styles[theme]}`
+            isActive ? `${styles.active} ` : `${styles.inActive} `
           }
         >
           Messages
         </NavLink>
       </div>
-      <div className={styles[theme]}>
+      <div>
         <NavLink
           to="/newsfeed"
           className={({ isActive }) =>
-            isActive
-              ? `${styles.active} ${styles[theme]}`
-              : `${styles.inActive} ${styles[theme]}`
+            isActive ? `${styles.active} ` : `${styles.inActive} `
           }
         >
           News
@@ -49,9 +40,7 @@ const Navbar = (props) => {
         <NavLink
           to="/music"
           className={({ isActive }) =>
-            isActive
-              ? `${styles.active} ${styles[theme]}`
-              : `${styles.inActive} ${styles[theme]}`
+            isActive ? `${styles.active} ` : `${styles.inActive} `
           }
         >
           Music
@@ -61,12 +50,20 @@ const Navbar = (props) => {
         <NavLink
           to="/settings"
           className={({ isActive }) =>
-            isActive
-              ? `${styles.active} ${styles[theme]}`
-              : `${styles.inActive} ${styles[theme]}`
+            isActive ? `${styles.active} ` : `${styles.inActive} `
           }
         >
           Settings
+        </NavLink>
+      </div>
+      <div>
+        <NavLink
+          to="/users"
+          className={({ isActive }) =>
+            isActive ? `${styles.active} ` : `${styles.inActive}`
+          }
+        >
+          Users
         </NavLink>
       </div>
       <FriendsListContainer />

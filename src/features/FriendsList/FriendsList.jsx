@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import styles from './FriendsList.module.css';
 import UserAvatar from '../../components/Helpers/UserAvatar/UserAvatar';
 import { ThemeContext } from '../../context/ThemeProvider';
-import store from '../../state/reduxStore';
 
 const FriendsList = (props) => {
-  useEffect(() => {
+  useEffect((props) => {
     props.set3RandomFriend();
   }, []);
   const { theme } = useContext(ThemeContext);

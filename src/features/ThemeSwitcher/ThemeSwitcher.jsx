@@ -4,7 +4,7 @@ import { ThemeContext } from '../../context/ThemeProvider';
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
- 
+
   return (
     <div className={`${styles.switcher} ${styles[theme]}`}>
       <input

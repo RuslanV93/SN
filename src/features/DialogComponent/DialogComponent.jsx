@@ -5,7 +5,6 @@ import TextArea from '../../components/Helpers/TextArea/TextArea';
 import Button from '../../components/Helpers/Button/Button';
 import sendImg from '../../images/sendMessage.png';
 import { useParams } from 'react-router-dom';
-import { addNewMessage, messageTextAreaChange } from '../../state/MessagesPageReducer';
 
 const DialogComponent = (props) => {
   const messagesPage = props.messagesPage;

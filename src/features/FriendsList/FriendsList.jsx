@@ -4,10 +4,10 @@ import styles from './FriendsList.module.css';
 import UserAvatar from '../../components/Helpers/UserAvatar/UserAvatar';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-const FriendsList = (props) => {
+const FriendsList = ({ randomFriends, set3RandomFriends }) => {
   useEffect(() => {
-    props.set3RandomFriends();
-  }, []);
+    set3RandomFriends();
+  }, [set3RandomFriends]);
   const { theme } = useContext(ThemeContext);
   return (
     <div className={`${styles['navbar-friends-list-container']} ${styles[theme]}`}>
@@ -18,7 +18,7 @@ const FriendsList = (props) => {
         <h4>Friends</h4>
       </NavLink>
       <div className={styles['navbar-friends-list']}>
-        {props.randomFriends.map((friend) => (
+        {randomFriends.map((friend) => (
           <NavLink
             key={friend.id}
             to={`/friends/${friend.userName + friend.id}`}

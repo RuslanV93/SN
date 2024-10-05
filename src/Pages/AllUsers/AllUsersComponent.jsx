@@ -17,7 +17,7 @@ const AllUsersComponent = (props) => {
   for (let i = startPage; i <= endPage; i++) {
     pages.push(i);
   }
- 
+
   return (
     <div
       className={`${styles.usersPageContainer} ${

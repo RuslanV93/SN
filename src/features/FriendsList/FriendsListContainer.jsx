@@ -1,21 +1,14 @@
 import { connect } from 'react-redux';
 import FriendsList from './FriendsList';
-import { set3RandomFriendsActionCreator } from '../../state/FriendsListReducer';
+import { set3RandomFriends } from '../../state/FriendsListReducer';
 
 const mapStateToProps = (state) => {
   return {
-    USERS_DATA: state.friendsList.USERS_DATA,
+    FRIENDS_DATA: state.friendsList.FRIENDS_DATA,
     randomFriends: state.friendsList.randomFriends,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    set3RandomFriend: () => {
-      dispatch(set3RandomFriendsActionCreator());
-    },
-  };
-};
 
-const FriendsListContainer = connect(mapStateToProps, mapDispatchToProps)(FriendsList);
+const FriendsListContainer = connect(mapStateToProps, { set3RandomFriends })(FriendsList);
 
 export default FriendsListContainer;

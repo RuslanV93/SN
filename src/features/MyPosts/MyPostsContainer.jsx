@@ -1,7 +1,4 @@
-import {
-  addPostActionCreator,
-  textAreaChangeActionCreator,
-} from '../../state/ProfilePageReducer';
+import { addPost, textAreaChange } from '../../state/ProfilePageReducer';
 import MyPosts from './MyPosts';
 import { connect } from 'react-redux';
 
@@ -12,17 +9,7 @@ const mapStateToProps = (state) => {
     friendsList: state.friendsList.FRIENDS_DATA,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateNewPostText: (text) => {
-      dispatch(textAreaChangeActionCreator(text));
-    },
-    addPost: () => {
-      dispatch(addPostActionCreator());
-    },
-  };
-};
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+const MyPostsContainer = connect(mapStateToProps, { textAreaChange, addPost })(MyPosts);
 
 export default MyPostsContainer;

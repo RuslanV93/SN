@@ -19,7 +19,7 @@ const ProfilePageContainer = () => {
         dispatch(setUserProfile(response.data));
         dispatch(setFetchingStatus(false));
       });
-  }, [dispatch]);
+  }, [dispatch, userID]);
 
   if (isFetching) {
     return <LoaderComponent />;

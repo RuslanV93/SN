@@ -3,7 +3,6 @@ import Post from '../../components/Helpers/Post/Post';
 import Button from '../../components/Helpers/Button/Button';
 import React, { useRef } from 'react';
 import TextArea from '../../components/Helpers/TextArea/TextArea';
-import { textAreaChange } from '../../state/ProfilePageReducer';
 
 const MyPosts = (props) => {
   const postsElement = [...props.posts]

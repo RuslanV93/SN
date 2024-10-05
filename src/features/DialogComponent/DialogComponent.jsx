@@ -5,6 +5,7 @@ import TextArea from '../../components/Helpers/TextArea/TextArea';
 import Button from '../../components/Helpers/Button/Button';
 import sendImg from '../../images/sendMessage.png';
 import { useParams } from 'react-router-dom';
+import { addNewMessage, messageTextAreaChange } from '../../state/MessagesPageReducer';
 
 const DialogComponent = (props) => {
   const messagesPage = props.messagesPage;
@@ -14,15 +15,15 @@ const DialogComponent = (props) => {
   const { userID } = useParams();
   useEffect(() => {
     endOfMessagesRef.current.scrollIntoView();
-  }, []);
+  }, [props.messagesPage]);
 
   const onSendMessageClick = () => {
-    props.onSendMessage();
+    props.addNewMessage();
   };
 
   const onTextAreaChange = (e) => {
     const message = e.target.value;
-    props.onTextAreaChange(message);
+    props.messageTextAreaChange(message);
   };
 
   return (

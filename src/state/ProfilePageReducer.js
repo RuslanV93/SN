@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
+const SET_FETCHING_STATUS = 'SET-FETCHING-STATUS';
 
 const initialState = {
   POSTS_DATA: [
@@ -10,6 +12,8 @@ const initialState = {
     { userID: 'id4', postID: 5, message: 'ETO YA', likes: 223 },
   ],
   newPostText: '',
+  profile: {},
+  isFetching: true,
 };
 
 const profilePageReducer = (state = initialState, action) => {
@@ -34,16 +38,31 @@ const profilePageReducer = (state = initialState, action) => {
         newPostText: '',
       };
     }
-
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        profile: action.profile,
+      };
+    case SET_FETCHING_STATUS:
+      return {
+        ...state,
+        isFetching: action.isFetching,
+      };
     default:
       return state;
   }
 };
 export default profilePageReducer;
 
-export const addPostActionCreator = () => {
+export const addPost = () => {
   return { type: ADD_POST };
 };
-export const textAreaChangeActionCreator = (text) => {
+export const textAreaChange = (text) => {
   return { type: UPDATE_NEW_POST_TEXT, text };
+};
+export const setUserProfile = (profile) => {
+  return { type: SET_USER_PROFILE, profile };
+};
+export const setFetchingStatus = (isFetching) => {
+  return { type: SET_FETCHING_STATUS, isFetching };
 };

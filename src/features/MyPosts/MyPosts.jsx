@@ -3,9 +3,9 @@ import Post from '../../components/Helpers/Post/Post';
 import Button from '../../components/Helpers/Button/Button';
 import React, { useRef } from 'react';
 import TextArea from '../../components/Helpers/TextArea/TextArea';
+import { textAreaChange } from '../../state/ProfilePageReducer';
 
 const MyPosts = (props) => {
-  console.log('hello2');
   const postsElement = [...props.posts]
     .reverse()
     .map((post) => (
@@ -26,7 +26,7 @@ const MyPosts = (props) => {
   const onTextAreaChange = (e) => {
     const text = e.target.value;
 
-    props.updateNewPostText(text);
+    props.textAreaChange(text);
   };
 
   return (

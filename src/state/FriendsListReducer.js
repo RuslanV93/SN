@@ -38,6 +38,6 @@ const FriendsListReducer = (state = initialState, action) => {
 };
 export default FriendsListReducer;
 
-export const set3RandomFriendsActionCreator = () => {
+export const set3RandomFriends = () => {
   return { type: SET_3_RANDOM_FRIENDS };
 };

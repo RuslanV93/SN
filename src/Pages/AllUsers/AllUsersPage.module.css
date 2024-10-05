@@ -1,0 +1,43 @@
+.usersPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+    gap: 30px
+}
+
+.isLoading {
+    opacity: 40%;
+    pointer-events: none;
+}
+
+.selected-page {
+    font-weight: bold;
+    font-size: 17px;
+    transform: translateY(-3px);
+    transition: transform 0.5s ease;
+
+}
+
+.pages-link {
+    display: flex;
+    width: 20px;
+    justify-content: center;
+    user-select: none;
+}
+
+.pages-link:hover {
+
+    cursor: pointer;
+    color: #4267b2;
+
+}
+
+.pages-count-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+
+}
+

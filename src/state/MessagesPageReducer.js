@@ -46,9 +46,9 @@ const messagesPageReducer = (state = initialState, action) => {
 };
 export default messagesPageReducer;
 
-export const messageTextAreaChangeActionCreator = (message) => {
+export const messageTextAreaChange = (message) => {
   return { type: UPDATE_NEW_MESSAGE_TEXT, message };
 };
-export const addNewMessageActionCreator = () => {
+export const addNewMessage = () => {
   return { type: SEND_MESSAGE };
 };

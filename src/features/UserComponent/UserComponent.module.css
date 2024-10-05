@@ -1,7 +1,10 @@
 .user-component-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20px 0 20px;
+    align-items: center;
     width: 600px;
     height: 150px;
     border: 1px solid black;
@@ -11,6 +14,7 @@
 
 .users-photo {
     width: 100px;
+    border-radius: 50px;
 }
 
 .button {

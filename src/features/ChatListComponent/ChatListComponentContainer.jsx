@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
   return {
     messagesPage: state.messagesPage,
     friendsList: state.friendsList.FRIENDS_DATA,
+    isAuth: state.auth.isAuth,
   };
 };
 

@@ -21,7 +21,7 @@ const AllUsersComponent = (props) => {
   return (
     <div
       className={`${styles.usersPageContainer} ${
-        props.isLoading ? styles['isLoading'] : null
+        props.isFetching ? styles['isLoading'] : null
       }`}
     >
       <div className={styles['pages-count-container']}>
@@ -42,13 +42,12 @@ const AllUsersComponent = (props) => {
           id={user.id}
           userPhoto={user.photos.large ? user.photos.large : userPhoto}
           key={user.id}
-          isFollowed={user.isFollowed}
+          isFollowed={user.followed}
           name={user.name}
           status={user.status}
-          // city={user.location.city}
-          // country={user.location.country}
-          followUser={props.followUser}
-          unFollowUser={props.unFollowUser}
+          setFollowingProgress={props.setFollowingProgress}
+          followingInProgress={props.followingInProgress}
+          onFollowClick={props.onFollowClick}
         />
       ))}
     </div>

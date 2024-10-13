@@ -2,12 +2,14 @@ import styles from './Messages.module.css';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import ChatListWindowContainer from '../../features/ChatListComponent/ChatListComponentContainer';
 import DialogComponentContainer from '../../features/DialogComponent/DialogComponentContainer';
+import React from 'react';
 
-const Messages = (props) => {
+const Messages = () => {
   const location = useLocation();
 
   const isDialogOpen =
     location.pathname.includes('/messages/') && location.pathname.split('/messages/')[1];
+
   return (
     <div className={styles.messages}>
       <h1>Dialogs</h1>

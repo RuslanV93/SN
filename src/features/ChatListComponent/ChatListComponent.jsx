@@ -13,7 +13,7 @@ const ChatListWindowComponent = (props) => {
 
   return (
     <ul className={styles.chatsList}>
-      {chatsParticipants.map((user, index) => (
+      {chatsParticipants.map((user) => (
         <NavLink
           key={user.id}
           to={`/messages/${user.id}`}

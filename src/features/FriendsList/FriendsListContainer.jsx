@@ -1,5 +1,6 @@
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import FriendsList from './FriendsList';
+import { compose } from 'redux';
 import { set3RandomFriends } from '../../state/FriendsListReducer';
 
 const mapStateToProps = (state) => {
@@ -9,6 +10,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-const FriendsListContainer = connect(mapStateToProps, { set3RandomFriends })(FriendsList);
+const withAuthFriendsList = (Component) => {
+  return (props) => {
+    const auth = useSelector((state) => state.auth.isAuth);
+    return auth ? <Component {...props} /> : null;
+  };
+};
 
+const FriendsListContainer = compose(
+  withAuthFriendsList,
+  connect(mapStateToProps, { set3RandomFriends })
+)(FriendsList);
 export default FriendsListContainer;

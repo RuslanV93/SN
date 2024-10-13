@@ -17,10 +17,6 @@
     border-radius: 50px;
 }
 
-.button {
-
-}
-
 .button-container {
     width: 100px;
     height: 30px;
@@ -33,4 +29,11 @@
     cursor: pointer;
     background-color: var(--chat-link-hover-bg-color);
     color: var(--chat-link-hover-text-color);
+}
+
+.button-container:disabled:hover {
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #aaa
 }

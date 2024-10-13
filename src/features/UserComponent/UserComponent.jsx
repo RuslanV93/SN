@@ -18,19 +18,19 @@ const UserComponent = (props) => {
         </div>
         {props.isFollowed ? (
           <Button
+            userId={props.id}
+            followingInProgress={props.followingInProgress}
             btnStyles={{ ...styles }}
-            click={() => {
-              props.unFollowUser(props.id);
-            }}
+            click={() => props.onFollowClick(props.id, 'unfollow')}
           >
             Unfollow
           </Button>
         ) : (
           <Button
+            userId={props.id}
+            followingInProgress={props.followingInProgress}
             btnStyles={{ ...styles }}
-            click={() => {
-              props.followUser(props.id);
-            }}
+            click={() => props.onFollowClick(props.id, 'follow')}
           >
             Follow
           </Button>

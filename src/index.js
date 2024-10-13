@@ -21,3 +21,5 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
+
+window.store = store;

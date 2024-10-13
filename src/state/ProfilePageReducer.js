@@ -1,3 +1,5 @@
+import { usersAPI } from '../API/API';
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
@@ -65,4 +67,19 @@ export const setUserProfile = (profile) => {
 };
 export const setFetchingStatus = (isFetching) => {
   return { type: SET_FETCHING_STATUS, isFetching };
+};
+
+export const getProfilePage = (userID) => {
+  return (dispatch) => {
+    return usersAPI
+      .getProfilePage(userID)
+      .then((data) => {
+        dispatch(setUserProfile(data));
+        dispatch(setFetchingStatus(false));
+      })
+      .catch((error) => {
+        dispatch(setFetchingStatus(false));
+        return Promise.reject(error);
+      });
+  };
 };

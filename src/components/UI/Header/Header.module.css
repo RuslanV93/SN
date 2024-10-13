@@ -6,6 +6,7 @@
     align-items: center;
     box-sizing: border-box;
     background-color: var(--header-bg-color);
+
 }
 
 .header-img {
@@ -16,4 +17,12 @@
 
 }
 
+.login-block {
+   
+    justify-self: end;
+    width: 80%;
+    text-align: end;
+    box-sizing: border-box;
+    padding-right: 20px;
 
+}

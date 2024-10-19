@@ -1,6 +1,5 @@
 import styles from './Myposts.module.css';
 import Post from '../../components/Helpers/Post/Post';
-import Button from '../../components/Helpers/Button/Button';
 import React, { useRef } from 'react';
 import TextArea from '../../components/Helpers/TextArea/TextArea';
 
@@ -17,30 +16,49 @@ const MyPosts = (props) => {
     ));
 
   const newPostElement = useRef(null);
+  const onSubmit = (values, form) => {
+    console.log(values);
+    if (
+      values.newPostInput &&
+      values.newPostInput.length < 300 &&
+      values.newPostInput.trim() !== ''
+    ) {
+      props.addPost();
+    }
+  };
 
-  function onAddPostButtonClick() {
-    props.addPost();
-  }
+  const validate = (values) => {
+    const errors = {};
 
-  const onTextAreaChange = (e) => {
-    const text = e.target.value;
+    if (!values.newPostInput || values.newPostInput.trim() === '') {
+      errors.newPostInput = "Post can't be empty.";
+    }
 
-    props.textAreaChange(text);
+    if (values.newPostInput?.length > 300) {
+      errors.newPostInput = 'Too many characters. The maximum value is 300.';
+    }
+
+    return errors;
+  };
+
+  const onTextAreaChange = (value) => {
+    props.textAreaChange(value);
   };
 
   return (
     <div className={`${styles['my-posts']}`}>
       <TextArea
+        textAreaStyles={{ ...styles }}
+        onSubmit={onSubmit}
+        name={'newPostInput'}
+        validate={validate}
         ref={newPostElement}
-        onTextAdd={onTextAreaChange}
+        onTextAreaChange={onTextAreaChange}
         value={props.newPostText}
-        textareaStyles={{ ...styles }}
-        textPlaceholder={'Что нового?'}
+        textPlaceholder={"What's new?"}
+        buttonText={'Add Post'}
       ></TextArea>
 
-      <Button click={onAddPostButtonClick} btnStyles={{ ...styles }}>
-        Add Post
-      </Button>
       {postsElement}
     </div>
   );

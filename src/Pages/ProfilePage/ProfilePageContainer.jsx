@@ -6,9 +6,11 @@ import ProfilePage from './ProfilePage';
 import {
   addPost,
   getProfilePage,
+  getStatus,
   setFetchingStatus,
   setUserProfile,
   textAreaChange,
+  updateStatus,
 } from '../../state/ProfilePageReducer';
 import { compose } from 'redux';
 
@@ -16,6 +18,7 @@ const ProfilePageContainer = (props) => {
   const dispatch = useDispatch();
   const isFetching = useSelector((state) => state.profilePage.isFetching);
   const profile = useSelector((state) => state.profilePage.profile);
+  const userStatus = useSelector((state) => state.profilePage.status);
 
   const { userID } = useParams();
   const [error, setError] = useState(null);
@@ -24,7 +27,9 @@ const ProfilePageContainer = (props) => {
     dispatch(setFetchingStatus(true));
     setError(null);
     props.getProfilePage(userID).catch((e) => setError(e));
-  }, [dispatch, userID]);
+
+    props.getStatus(userID);
+  }, [props, dispatch, userID]);
 
   if (error) {
     return (
@@ -38,12 +43,20 @@ const ProfilePageContainer = (props) => {
   if (isFetching) {
     return <LoaderComponent />;
   } else {
-    return <ProfilePage profile={profile} />;
+    return (
+      <ProfilePage
+        profile={profile}
+        userStatus={userStatus}
+        updateStatus={props.updateStatus}
+      />
+    );
   }
 };
 
 const dispatches = {
   getProfilePage,
+  getStatus,
+  updateStatus,
   addPost,
   textAreaChange,
   setUserProfile,

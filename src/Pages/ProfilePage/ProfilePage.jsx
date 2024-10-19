@@ -6,7 +6,7 @@ import { ThemeContext } from '../../context/ThemeProvider';
 
 const ProfilePage = (props) => {
   const { theme } = useContext(ThemeContext);
-
+  
   return (
     <div className={`${styles.profile} ${styles[theme]}`}>
       <div className={styles['page-head-img']}>

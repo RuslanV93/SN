@@ -8,7 +8,7 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <NotFoundPage />;
   }
-
+  
   return (
     <div className={`${styles['profile-info']} `}>
       <img
@@ -22,7 +22,11 @@ const ProfileInfo = (props) => {
       ></img>
       <div className={styles.description}>
         <h3>{props.profile.fullName}</h3>
-        <ProfileStatus profile={props.profile} status={'status'} />
+        <ProfileStatus
+          profile={props.profile}
+          userStatus={props.userStatus}
+          updateStatus={props.updateStatus}
+        />
       </div>
     </div>
   );

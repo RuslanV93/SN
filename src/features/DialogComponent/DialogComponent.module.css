@@ -154,34 +154,33 @@
 
 .end-of-messages {
     display: flex;
+    width: 100%;
     flex-direction: row;
     box-sizing: border-box;
     margin-top: 20px;
     padding: 0 20px 0 20px;
-    justify-content: center;
+
 }
 
 .textarea-container {
-    display: flex;
-    border: 1px solid rgba(57, 155, 227, 0.22);
     width: 90%;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    min-height: 3ch;
-    padding: 6px 5px 5px 5px;
-    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
     text-align: center;
 
 }
 
 .textarea {
+    min-height: 60px;
     width: 100%;
+    height: auto;
+    max-height: 80px;
     box-sizing: border-box;
-    padding: 5px; /* Отступы внутри textarea */
+    padding: 5px 5px 5px 20px; /* Отступы внутри textarea */
     outline: none;
-    border-radius: 4px; /* Закругление углов */
-    background-color: #f0f4f8; /* Цвет фона */
+    background-color: var(--text-area-background-color); /* Цвет фона */
     font-size: 16px; /* Размер шрифта */
     color: #345770; /* Цвет текста */
     border: none;
@@ -189,6 +188,33 @@
     resize: none; /* Убираем возможность изменения размера */
     justify-content: center;
     align-content: center;
+    border-radius: 10px;
 
 }
 
+.form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.textarea-wrapper {
+    position: relative;
+    width: 100%;
+
+}
+
+.input-error-message {
+    border: 1px solid #dd3c10;
+    background-color: #ffebe8;
+    border-radius: 10px;
+    color: black;
+    width: 200px;
+    padding: 3px 10px 3px 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -60%;
+}

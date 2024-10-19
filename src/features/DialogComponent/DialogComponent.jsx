@@ -2,7 +2,6 @@ import styles from './DialogComponent.module.css';
 import UserAvatar from '../../components/Helpers/UserAvatar/UserAvatar';
 import React, { useEffect, useRef } from 'react';
 import TextArea from '../../components/Helpers/TextArea/TextArea';
-import Button from '../../components/Helpers/Button/Button';
 import sendImg from '../../images/sendMessage.png';
 import { useParams } from 'react-router-dom';
 
@@ -16,15 +15,21 @@ const DialogComponent = (props) => {
     endOfMessagesRef.current.scrollIntoView();
   }, [props.messagesPage]);
 
-  const onSendMessageClick = () => {
-    props.addNewMessage();
+  const onSubmit = (values, form) => {
+    if (values.message && values.message.length < 300) {
+      props.addNewMessage();
+    }
   };
-
-  const onTextAreaChange = (e) => {
-    const message = e.target.value;
-    props.messageTextAreaChange(message);
+  const onTextAreaChange = (value) => {
+    props.messageTextAreaChange(value);
   };
-
+  const validate = (value) => {
+    const errors = {};
+    if (!value.message) {
+      errors.message = "Message can't be empty.";
+    }
+    return errors;
+  };
   return (
     <div className={`${styles['dialog-container']}`}>
       <div className={styles['messages-container']}>
@@ -45,16 +50,16 @@ const DialogComponent = (props) => {
 
       <div className={styles['end-of-messages']}>
         <TextArea
+          textAreaStyles={{ ...styles }}
           ref={textAreaRef}
-          onTextAdd={onTextAreaChange}
+          validate={validate}
+          name={'message'}
+          onSubmit={onSubmit}
+          onTextAreaChange={onTextAreaChange}
           value={messagesPage.newMessageText}
-          textareaStyles={{ ...styles }}
           textPlaceholder={'Напишите сообщение...'}
+          buttonText={<img src={sendImg} alt={'Send message'} />}
         ></TextArea>
-
-        <Button click={onSendMessageClick} btnStyles={{ ...styles }}>
-          <img src={sendImg} alt={'Send message'} />
-        </Button>
       </div>
     </div>
   );

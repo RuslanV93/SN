@@ -1,0 +1,110 @@
+.login-form-container h4 {
+    padding: 0;
+    margin: 50px 0 0 0;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(91, 86, 86, 0.53);
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    margin-bottom: 100px;
+    transform: translateY(-10%);
+
+}
+
+.loginForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.button-container {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    align-items: center;
+    font-size: 18px;
+    justify-content: center;
+    color: cornflowerblue;
+    font-weight: lighter;
+    border: 1px solid rgba(4, 4, 4, 0.1);
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    background-color: var(--default-button-background);
+
+}
+
+.button-container:hover {
+    background-color: var(--chat-link-hover-bg-color);
+    border-color: rgba(4, 4, 4, 0.3);
+    color: var(--chat-link-hover-text-color);
+
+}
+
+.input {
+    width: 300px;
+    height: 50px;
+    font-size: large;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.remember-me-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-right: 50px;
+
+}
+
+.remember-me-container label {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.remember-me-container input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.input-wrapper {
+    display: flex;
+    position: relative;
+
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.input-error, .input-error::placeholder {
+    border-color: rgba(255, 0, 0, 0.62);
+    color: #e06464;
+}
+
+.input-error:focus {
+    outline: 1px solid rgba(255, 0, 0, 0.69);
+}
+
+.show-password-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-90%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0
+}

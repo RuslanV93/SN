@@ -1,8 +1,10 @@
 import React from 'react';
 
 class ProfileStatus extends React.Component {
+  statusInputRef = React.createRef();
   state = {
     editMode: false,
+    status: this.props.userStatus,
   };
 
   activateEditMode = () => {
@@ -11,19 +13,39 @@ class ProfileStatus extends React.Component {
 
   deactivateEditMode = () => {
     this.setState({ editMode: false });
+    if (this.state.status) {
+      this.props.updateStatus(this.state.status);
+    }
   };
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.currentTarget.value,
+    });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.userStatus !== this.props.userStatus) {
+      this.setState({
+        status: this.props.updateStatus,
+      });
+    }
+  }
 
   render() {
     return (
       <div>
         {!this.state.editMode ? (
-          <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+          <span onDoubleClick={this.activateEditMode}>
+            {this.props.userStatus || 'Write something...'}
+          </span>
         ) : (
           <input
+            onChange={this.onStatusChange}
             autoFocus={true}
             type="text"
-            value={this.props.status}
+            value={this.state.status}
             onBlur={this.deactivateEditMode}
+            ref={this.statusInputRef}
           />
         )}
         <p>

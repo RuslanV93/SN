@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { profileAuthorisation, setAuthUserData } from '../../../state/AuthReducer';
+import {
+  profileAuthorisation,
+  setAuthUserData,
+  signOut,
+} from '../../../state/AuthReducer';
 import Header from './Header';
 
 class HeaderContainer extends React.Component {
@@ -8,8 +12,12 @@ class HeaderContainer extends React.Component {
     this.props.profileAuthorisation();
   }
 
+  logOut = () => {
+    this.props.signOut();
+  };
+
   render() {
-    return <Header {...this.props} />;
+    return <Header {...this.props} logOut={this.logOut} />;
   }
 }
 
@@ -25,5 +33,6 @@ const mapStateToProps = (state) => {
 const dispatches = {
   setAuthUserData,
   profileAuthorisation,
+  signOut,
 };
 export default connect(mapStateToProps, dispatches)(HeaderContainer);

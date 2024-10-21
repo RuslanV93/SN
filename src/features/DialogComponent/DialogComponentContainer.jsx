@@ -1,4 +1,4 @@
-import { addNewMessage, messageTextAreaChange } from '../../state/MessagesPageReducer';
+import { addNewMessage } from '../../state/MessagesPageReducer';
 import DialogComponent from './DialogComponent';
 
 import { connect } from 'react-redux';
@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
 };
 
 const DialogComponentContainer = connect(mapStateToProps, {
-  messageTextAreaChange,
   addNewMessage,
 })(DialogComponent);
 export default DialogComponentContainer;

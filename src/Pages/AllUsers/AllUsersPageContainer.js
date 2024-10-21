@@ -9,6 +9,7 @@ import React from 'react';
 import AllUsersComponent from './AllUsersComponent';
 import LoaderComponent from '../../components/Helpers/loader/LoaderComponent';
 import { compose } from 'redux';
+import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 
 class AllUsersContainer extends React.Component {
   componentDidMount() {
@@ -59,6 +60,6 @@ const dispatches = {
   followUserClick,
 };
 export default compose(
-  connect(mapStateToProps, dispatches)
-  // WithAuthRedirect
+  connect(mapStateToProps, dispatches),
+  WithAuthRedirect
 )(AllUsersContainer);

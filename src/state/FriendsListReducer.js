@@ -1,9 +1,9 @@
-import Alla from '../images/Alla.jfif';
+import Alla from '../images/Alla.jpg';
 import Leha from '../images/Leha.jpg';
-import Valera from '../images/Valera.jfif';
-import Sveta from '../images/Sveta.jfif';
-import Katya from '../images/Katya.jfif';
-import Pasha from '../images/Pasha.jfif';
+import Valera from '../images/Valera.jpg';
+import Sveta from '../images/Sveta.jpg';
+import Katya from '../images/Katya.jpg';
+import Pasha from '../images/Pasha.jpg';
 import Ruslan from '../images/Ruslan.jpg';
 
 const SET_3_RANDOM_FRIENDS = 'SET-3-RANDOM-FRIENDS';

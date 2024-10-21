@@ -4,50 +4,36 @@ import Button from '../Button/Button';
 
 const TextAreaView = React.forwardRef(
   (
-    {
-      onSubmit,
-      validate,
-      textPlaceholder,
-      inputValue,
-      onTextAreaChange,
-      buttonText,
-      name,
-      textAreaStyles,
-    },
+    { onSubmit, textPlaceholder, inputValue, validate, buttonText, name, textAreaStyles },
     ref
   ) => {
     return (
       <Form
         onSubmit={onSubmit}
-        validate={validate}
-        initialValues={{ [name]: inputValue }}
         render={({ handleSubmit }) => (
           <form className={textAreaStyles['form-container']} onSubmit={handleSubmit}>
-            <Field name={name}>
-              {({ input, meta }) => (
-                <div className={textAreaStyles['textarea-wrapper']}>
-                  {meta.error && meta.submitFailed && !meta.modifiedSinceLastSubmit ? (
-                    <span className={textAreaStyles['input-error-message']}>
-                      {meta.error}
-                    </span>
-                  ) : null}
-                  <textarea
-                    {...input}
-                    value={inputValue}
-                    onChange={(e) => {
-                      input.onChange(e);
-                      onTextAreaChange(e.target.value);
-                    }}
-                    ref={ref}
-                    className={textAreaStyles['textarea']}
-                    placeholder={
-                      meta.error && meta.submitFailed
-                        ? 'Write something.'
-                        : textPlaceholder
-                    }
-                  ></textarea>
-                </div>
-              )}
+            <Field name={name} validate={validate}>
+              {({ input, meta }) => {
+                return (
+                  <div className={textAreaStyles['textarea-wrapper']}>
+                    {(meta.error && meta.active) || (meta.error && meta.submitFailed) ? (
+                      <span className={textAreaStyles['input-error-message']}>
+                        {meta.error.required || meta.error.maximumLength}
+                      </span>
+                    ) : null}
+                    <textarea
+                      {...input}
+                      ref={ref}
+                      className={textAreaStyles['textarea']}
+                      placeholder={
+                        meta.error && meta.submitFailed
+                          ? 'Write something.'
+                          : textPlaceholder
+                      }
+                    ></textarea>
+                  </div>
+                );
+              }}
             </Field>
 
             <Button type={'submit'} btnStyles={{ ...textAreaStyles }}>

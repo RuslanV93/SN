@@ -14,34 +14,59 @@ const LoginFormView = ({
   return (
     <Form
       onSubmit={onSubmit}
-      validate={validate}
       render={({ handleSubmit }) => (
         <form className={styles.loginForm} onSubmit={handleSubmit}>
-          <Field name={'login'}>
-            {({ input, meta }) => (
-              <div className={styles['input-wrapper']}>
-                <input
-                  {...input}
-                  placeholder={meta.touched && meta.error ? meta.error : 'Login'}
-                  className={`${styles['input']} ${styles['login-input']} ${
-                    meta.touched && meta.error ? styles['input-error'] : null
-                  }`}
-                  type="login"
-                />
-              </div>
-            )}
+          <Field name={'login'} validate={validate}>
+            {({ input, meta }) => {
+              return (
+                <div className={styles['input-wrapper']}>
+                  <input
+                    {...input}
+                    placeholder={
+                      meta.touched && meta.error && !meta.active
+                        ? 'Login is required'
+                        : 'Login'
+                    }
+                    className={`${styles['input']} ${styles['login-input']} ${
+                      meta.touched && meta.error && !meta.active
+                        ? styles['input-error']
+                        : null
+                    }`}
+                    type="login"
+                    autoComplete={'username'}
+                  />
+                  {meta.error ? (
+                    <span className={styles['error-message']}>
+                      {meta.error.spaces || meta.error.maximumLength}
+                    </span>
+                  ) : null}
+                </div>
+              );
+            }}
           </Field>
-          <Field name={'password'}>
+          <Field name={'password'} validate={validate}>
             {({ input, meta }) => (
               <div className={styles['input-wrapper']}>
                 <input
                   {...input}
-                  placeholder={meta.touched && meta.error ? meta.error : 'Password'}
+                  placeholder={
+                    meta.touched && meta.error && !meta.active
+                      ? 'Password is required.'
+                      : 'Password'
+                  }
                   className={`${styles['input']} ${styles['password-input']} ${
-                    meta.touched && meta.error ? styles['input-error'] : null
+                    meta.touched && meta.error && !meta.active
+                      ? styles['input-error']
+                      : null
                   }`}
                   type={showPassword ? 'text' : 'password'}
+                  autoComplete={'current-password'}
                 />
+                {meta.error ? (
+                  <span className={styles['error-message']}>
+                    {meta.error.spaces || meta.error.maximumLength}
+                  </span>
+                ) : null}
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
@@ -50,11 +75,11 @@ const LoginFormView = ({
                 >
                   {showPassword ? (
                     <span role="img" aria-label="Hide password">
-                      <img src={opened}></img>
+                      <img src={opened} alt={'Password visibility'}></img>
                     </span>
                   ) : (
                     <span role="img" aria-label="Show password">
-                      <img src={closed}></img>
+                      <img src={closed} alt={'Password visibility'}></img>
                     </span>
                   )}
                 </button>

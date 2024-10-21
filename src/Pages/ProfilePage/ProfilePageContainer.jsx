@@ -9,10 +9,10 @@ import {
   getStatus,
   setFetchingStatus,
   setUserProfile,
-  textAreaChange,
   updateStatus,
 } from '../../state/ProfilePageReducer';
 import { compose } from 'redux';
+import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 
 const ProfilePageContainer = (props) => {
   const dispatch = useDispatch();
@@ -58,11 +58,8 @@ const dispatches = {
   getStatus,
   updateStatus,
   addPost,
-  textAreaChange,
+
   setUserProfile,
   setFetchingStatus,
 };
-export default compose(
-  connect(null, dispatches)
-  // WithAuthRedirect
-)(ProfilePageContainer);
+export default compose(connect(null, dispatches), WithAuthRedirect)(ProfilePageContainer);

@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 const initialState = {
   USERS_MESSAGES: [
@@ -15,13 +14,6 @@ const initialState = {
 
 const messagesPageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_NEW_MESSAGE_TEXT: {
-      return {
-        ...state,
-        newMessageText: action.message,
-      };
-    }
-
     case SEND_MESSAGE: {
       const allMessages = state.USERS_MESSAGES;
       const currentID = allMessages[allMessages.length - 1].id.replace(
@@ -32,12 +24,11 @@ const messagesPageReducer = (state = initialState, action) => {
       );
       const newMessage = {
         id: currentID,
-        message: state.newMessageText,
+        message: action.newMessage,
       };
       return {
         ...state,
         USERS_MESSAGES: [...state.USERS_MESSAGES, newMessage],
-        newMessageText: '',
       };
     }
     default:
@@ -46,9 +37,6 @@ const messagesPageReducer = (state = initialState, action) => {
 };
 export default messagesPageReducer;
 
-export const messageTextAreaChange = (message) => {
-  return { type: UPDATE_NEW_MESSAGE_TEXT, message };
-};
-export const addNewMessage = () => {
-  return { type: SEND_MESSAGE };
+export const addNewMessage = (newMessage) => {
+  return { type: SEND_MESSAGE, newMessage };
 };

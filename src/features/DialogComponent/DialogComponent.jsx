@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import TextArea from '../../components/Helpers/TextArea/TextArea';
 import sendImg from '../../images/sendMessage.png';
 import { useParams } from 'react-router-dom';
+import { maxLength, requiredField } from '../../utils/validators';
 
 const DialogComponent = (props) => {
   const messagesPage = props.messagesPage;
@@ -16,20 +17,17 @@ const DialogComponent = (props) => {
   }, [props.messagesPage]);
 
   const onSubmit = (values, form) => {
-    if (values.message && values.message.length < 300) {
-      props.addNewMessage();
-    }
-  };
-  const onTextAreaChange = (value) => {
-    props.messageTextAreaChange(value);
+    props.addNewMessage(values.message);
+    form.reset();
   };
   const validate = (value) => {
-    const errors = {};
-    if (!value.message) {
-      errors.message = "Message can't be empty.";
-    }
-    return errors;
+    const errors = {
+      ...requiredField(value),
+      ...maxLength(300)(value),
+    };
+    return Object.keys(errors).length > 0 ? errors : undefined;
   };
+
   return (
     <div className={`${styles['dialog-container']}`}>
       <div className={styles['messages-container']}>
@@ -55,7 +53,6 @@ const DialogComponent = (props) => {
           validate={validate}
           name={'message'}
           onSubmit={onSubmit}
-          onTextAreaChange={onTextAreaChange}
           value={messagesPage.newMessageText}
           textPlaceholder={'Напишите сообщение...'}
           buttonText={<img src={sendImg} alt={'Send message'} />}

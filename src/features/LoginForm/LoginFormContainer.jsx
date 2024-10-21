@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
 import LoginFormView from './LoginFormView';
-import { loginAPI } from '../../API/loginAPI';
+import { maxLength, requiredField, spaceValidation } from '../../utils/validators';
+import { signIn } from '../../state/AuthReducer';
+import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-const LoginFormContainer = () => {
+const LoginFormContainer = (props) => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
+  if (props.isAuth) {
+    navigate(props.prevLocation);
+  }
   const onSubmit = (values) => {
     const { login, password, rememberMe } = values;
-    loginAPI.authLogin(login, password, rememberMe);
+
+    props.signIn(login, password, rememberMe);
   };
+
   const togglePasswordVisibility = () => {
-    console.log('hello');
     setShowPassword(!showPassword);
   };
 
-  const validate = (values) => {
-    const errors = {};
-    if (!values.login) {
-      errors.login = 'Login is required.';
-    }
-    if (!values.password) {
-      errors.password = 'Password is required.';
-    }
-    console.log(errors);
-    return errors;
+  const validate = (value) => {
+    const errors = {
+      ...requiredField(value),
+      ...spaceValidation(value),
+      ...maxLength(30)(value),
+    };
+    return Object.keys(errors).length > 0 ? errors : undefined;
   };
+
   return (
     <div className={styles['login-form-container']}>
       <h4>Log in to your profile to continue</h4>
@@ -39,4 +45,9 @@ const LoginFormContainer = () => {
   );
 };
 
-export default LoginFormContainer;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+  prevLocation: state.auth.prevLocation,
+});
+
+export default connect(mapStateToProps, { signIn })(LoginFormContainer);

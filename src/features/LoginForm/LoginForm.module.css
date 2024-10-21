@@ -108,3 +108,12 @@
     outline: none;
     padding: 0
 }
+
+.error-message {
+    position: absolute;
+    text-wrap: nowrap;
+    right: 50%;
+    top: 100%;
+    transform: translate(50%, -70%);
+    color: red
+}

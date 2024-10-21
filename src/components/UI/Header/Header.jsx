@@ -7,12 +7,21 @@ import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
   const { theme } = useContext(ThemeContext);
-
+  
   return (
     <header className={`${styles.header} ${styles[theme]}`}>
       <img className={styles['header-img']} src={logo} alt="Headerimage"></img>
       <div className={styles['login-block']}>
         <div>{props.isAuth ? props.login : <NavLink to="/login">Login</NavLink>}</div>
+        <div>
+          <span>
+            {props.isAuth && (
+              <button type={'button'} onClick={props.logOut}>
+                Log Out
+              </button>
+            )}
+          </span>
+        </div>
       </div>
       <ThemeSwitcher />
     </header>

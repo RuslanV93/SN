@@ -1,17 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { setPrevLocation } from '../state/AuthReducer';
 
 export const WithAuthRedirect = (Component) => {
-  return (props) => {
+  const AuthRedirectComponent: function = (props) => {
     const navigate = useNavigate();
-    const auth = useSelector((state) => state.auth.isAuth);
+    const location = useLocation();
+    const dispatch = useDispatch();
+    const isAuth = useSelector((state) => state.auth.isAuth);
     useEffect(() => {
-      if (!auth) {
+      dispatch(setPrevLocation(location.pathname));
+      if (!isAuth) {
         navigate('/login');
       }
-    }, [auth, navigate]);
-
-    return <Component {...props} />;
+    }, [isAuth, navigate, dispatch, location.pathname]);
+    return isAuth ? <Component {...props} /> : null;
   };
+  return AuthRedirectComponent;
 };

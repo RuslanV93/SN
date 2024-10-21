@@ -2,7 +2,6 @@ import { usersAPI } from '../API/userAPI';
 import { profileAPI } from '../API/profileAPI';
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_FETCHING_STATUS = 'SET-FETCHING-STATUS';
 const SET_STATUS = 'SET-STATUS';
@@ -23,24 +22,17 @@ const initialState = {
 
 const profilePageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_NEW_POST_TEXT: {
-      return {
-        ...state,
-        newPostText: action.text,
-      };
-    }
     case ADD_POST: {
       const getAllPosts = state.POSTS_DATA;
       const newPost = {
         userID: 'id1',
         postID: getAllPosts[getAllPosts.length - 1].postID + 1,
-        message: state.newPostText,
+        message: action.postText,
         likes: 0,
       };
       return {
         ...state,
         POSTS_DATA: [...state.POSTS_DATA, newPost],
-        newPostText: '',
       };
     }
     case SET_USER_PROFILE:
@@ -65,12 +57,10 @@ const profilePageReducer = (state = initialState, action) => {
 };
 export default profilePageReducer;
 
-export const addPost = () => {
-  return { type: ADD_POST };
+export const addPost = (postText) => {
+  return { type: ADD_POST, postText };
 };
-export const textAreaChange = (text) => {
-  return { type: UPDATE_NEW_POST_TEXT, text };
-};
+
 export const setUserProfile = (profile) => {
   return { type: SET_USER_PROFILE, profile };
 };
